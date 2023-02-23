@@ -239,15 +239,15 @@ function imageExists(image_url){
 
 .box{
   display: inline-block;
-  width: 36px;
-  height: 36px;
+  width: 37px;
+  height: 37px;
   border: 1px solid #6c757d;
   background-size: cover;
   border-radius: 4px;
 }
 
 .list-group-item{
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   padding-left: 15px;
   padding-right: 15px;
 }
