@@ -59,7 +59,7 @@ onMount(async () => {
       opts.type = 'img';
       opts.data = base64Image;
       call_api('api/save', opts).then(function(res) {
-        if (res.ok) {
+        if (res.status=='ok') {
           console.log('Saved');
           let newItem = {'filename': res.path};
           item[key].push(newItem);
