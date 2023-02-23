@@ -49,6 +49,13 @@
   
   {/if}
   
+  {#if curFields[key].type == 'txta'}
+  
+	
+	<textarea class="form-control" bind:value={data.posts[curIndex][curFields[key].title]}></textarea>
+	
+	{/if}
+  
   
   {/each}
   
