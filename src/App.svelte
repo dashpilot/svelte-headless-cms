@@ -15,6 +15,10 @@
     loading = false;
   });
   
+  function truncateString(str, no_words) {
+    return str.split(" ").splice(0,no_words).join(" ");
+  }
+  
   function addPost(){
     
     let curCat = data.categories.filter(x=>x.slug==curCatSlug)[0];
@@ -99,7 +103,7 @@ Loading
         
         <b>{item.title}</b>
         <br>
-        <span>{@html item.body}</span>
+        <span>{@html truncateString(item.body, 7)}...</span>
         
       </li>
       {/each}
