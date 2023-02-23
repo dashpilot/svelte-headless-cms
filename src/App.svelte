@@ -25,6 +25,7 @@
   }
   
   function truncateString(str, no_words) {
+    str = str.replace(/(<([^>]+)>)/gi, "");
     return str.split(" ").splice(0,no_words).join(" ");
   }
   
@@ -112,7 +113,7 @@ Loading
         
         <b>{item.title}</b>
         <br>
-        <span>{@html truncateString(item.body, 5)}...</span>
+        <span>{truncateString(item.body, 5)}...</span>
         
       </li>
       {/each}
