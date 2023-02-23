@@ -247,7 +247,7 @@ function imageExists(image_url){
 }
 
 .list-group-item{
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   padding-left: 15px;
   padding-right: 15px;
 }
