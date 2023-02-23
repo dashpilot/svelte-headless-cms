@@ -7,6 +7,8 @@
   let data;
   let loading = true;
   let saving = false;
+  let saved = false;
+  
   let curCatSlug = "home";
   
   let curPostId;
@@ -64,7 +66,12 @@
     call_api('api/save', opts).then(function(res) {
       if (res.status=='ok') {
         saving = false;
+        saved = true;
         console.log('Saved');
+        setTimeout(()=>{
+          saved = false;
+        }, 2000)
+       
       } else {
         saving = false;
         console.log('Error saving');
@@ -117,7 +124,7 @@ Loading
         
         <b>{item.title}</b>
         <br>
-        <span>{truncateString(item.body, 5)}...</span>
+        <span>{truncateString(item.body, 7)}...</span>
         
       </li>
       {/each}
@@ -137,9 +144,13 @@ Loading
         <button class="btn btn-primary mt-1" on:click={save}>
           {#if saving}
           <i class="fas fa-spinner fa-spin"></i>
+          {:else if saved}
+          <i class="fas fa-check"></i>
+          {:else}
+          <i class="fas fa-save"></i>
           {/if}
           
-          Save</button>
+         &nbsp; Save</button>
       </div>
       
     </div>
