@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { tick } from 'svelte';
+  import {slugify} from './lib/Helpers.svelte';
   
   import Editor from './lib/Editor.svelte'
   
@@ -10,7 +11,6 @@
   let saved = false;
   
   let curCatSlug = "home";
-  
   let curPostId;
 
   onMount(async () => {
@@ -40,24 +40,6 @@
   function newId(){
     let highest_id = Math.max(...data.posts.map(x => x.id));
     return highest_id+1;
-  }
-  
-  function slugify(str, id) {
-      str = str.replace(/^\s+|\s+$/g, ''); // trim
-      str = str.toLowerCase();
-    
-      // remove accents, swap ñ for n, etc
-      var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
-      var to   = "aaaaeeeeiiiioooouuuunc------";
-      for (var i=0, l=from.length ; i<l ; i++) {
-          str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-      }
-  
-      str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-          .replace(/\s+/g, '-') // collapse whitespace and replace by -
-          .replace(/-+/g, '-'); // collapse dashes
-  
-      return str+"-"+id;
   }
   
   function addPost(){
@@ -189,6 +171,8 @@ Loading
   
     {#if curPostId}
      {#key curPostId}
+     
+    
       <Editor bind:curPostId bind:data />
      {/key}
     {/if}

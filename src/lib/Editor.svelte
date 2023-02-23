@@ -1,6 +1,7 @@
 <script>
 	import TextEditor from "../widgets/TextEditor.svelte"
 	import Gallery from "../widgets/Gallery.svelte"
+	import {slugify} from './Helpers.svelte';
 	
 	export let curPostId;
 	export let data; 
@@ -25,12 +26,16 @@
 			data = data;
 		}
 	}
+	
+	function updateSlug(){
+		data.posts[curIndex].slug = slugify(data.posts[curIndex].title, curPost.id);
+	}
 </script>
  
 
   
   <label>Title</label>
-  <input type="text" class="form-control" bind:value={data.posts[curIndex].title}>
+  <input type="text" class="form-control" bind:value={data.posts[curIndex].title} on:keyup={updateSlug}>
   
   {#each Object.keys(curFields) as key}
 
