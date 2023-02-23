@@ -22,6 +22,8 @@ onMount(async () => {
     }else{
       var width = 800;
     }
+    
+    console.log(width)
     var img = new Image();
     img.onload = function() {
       var canvas = document.createElement('canvas'),
