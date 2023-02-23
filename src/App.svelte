@@ -6,6 +6,7 @@
   
   let data;
   let loading = true;
+  let saving = false;
   let curCatSlug = "home";
   
   let curPostId;
@@ -55,14 +56,17 @@
   }
   
   function save(){
+    saving = true;
     let opts = {};
     opts.path = "data.json";
     opts.type = 'json';
     opts.data = data;
     call_api('api/save', opts).then(function(res) {
-      if (res.ok) {
+      if (res.status=='ok') {
+        saving = false;
         console.log('Saved');
       } else {
+        saving = false;
         console.log('Error saving');
       }
     });
@@ -130,7 +134,12 @@ Loading
     
     <div class="savebar">
       <div class="buttons">
-        <button class="btn btn-primary mt-1" on:click={save}>Save</button>
+        <button class="btn btn-primary mt-1" on:click={save}>
+          {#if saving}
+          <i class="fas fa-spinner fa-spin"></i>
+          {/if}
+          
+          Save</button>
       </div>
       
     </div>
