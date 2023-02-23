@@ -225,10 +225,12 @@ Loading
     </div>
     <div class="settings-editor">
       
+      <div class="settings-inner">
       {#each Object.keys(data.settings) as key, val}
       <label>{key.replaceAll('_', ' ')}</label>
       <input type="text" class="form-control" bind:value={data.settings[key]} />
       {/each}
+      </div>
  
     </div>
   

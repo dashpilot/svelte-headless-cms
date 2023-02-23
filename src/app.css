@@ -402,13 +402,16 @@ textarea {
 .settings-editor {
   margin: 0 auto;
   max-width: 600px;
+}
+
+.settings-inner {
+  margin: 0px;
+  border-radius: 8px;
+  background-color: white;
   padding: 25px;
   padding-top: 30px;
   padding-bottom: 5px;
   border: 1px solid #ccc;
-  margin-top: 100px;
-  border-radius: 8px;
-  background-color: white;
 }
 
 .preview {
