@@ -49,6 +49,12 @@
   
   {/if}
   
+  {#if curFields[key].type == 'txt'}
+  
+	<input type="text" class="form-control" bind:value={data.posts[curIndex][curFields[key].title]}>
+  
+	{/if}
+  
   {#if curFields[key].type == 'txta'}
   
 	

@@ -17,6 +17,7 @@
     const res = await fetch(cfg.dataPath);
     data = await res.json();
     loading = false;
+    newId()
   });
   
   async function setCat(slug){
@@ -32,15 +33,39 @@
     return str.split(" ").splice(0,no_words).join(" ");
   }
   
+  function newId(){
+    let highest_id = Math.max(...data.posts.map(x => x.id));
+    return highest_id+1;
+  }
+  
+  function slugify(str, id) {
+      str = str.replace(/^\s+|\s+$/g, ''); // trim
+      str = str.toLowerCase();
+    
+      // remove accents, swap ñ for n, etc
+      var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+      var to   = "aaaaeeeeiiiioooouuuunc------";
+      for (var i=0, l=from.length ; i<l ; i++) {
+          str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+      }
+  
+      str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+          .replace(/\s+/g, '-') // collapse whitespace and replace by -
+          .replace(/-+/g, '-'); // collapse dashes
+  
+      return str+"-"+id;
+  }
+  
   function addPost(){
     
     let curCat = data.categories.filter(x=>x.slug==curCatSlug)[0];
     let curType = data.types.filter(x=>x.slug==curCat.type)[0];
   
     let newPost = {}
+    let id = newId();
+    
     newPost.title = "Lorem ipsum";
-    newPost.id = "i"+Date.now();
-    newPost.slug = "";
+    newPost.id = id;
     newPost.category = curCatSlug;
     
     curType.fields.forEach(item=>{
@@ -50,6 +75,8 @@
         newPost[item.title] = "";
       }
     })
+    
+    newPost.slug = slugify(newPost.title, id);
   
     data.posts.unshift(newPost)
     data = data;

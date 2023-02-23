@@ -3,6 +3,7 @@
     {
       "id": "1",
       "title": "Hello World",
+      "slug": "hello-world-1",
       "body": "Sed commodo ante vel mi faucibus sodales. Phasellus egestas sapien sit amet tellus porttitor, consectetur ullamcorper neque molestie. Sed at nibh sed felis feugiat malesuada. Duis posuere libero tortor, id lacinia risus dictum eget. ",
       "gallery": [],
       "category": "home"
@@ -10,6 +11,7 @@
     {
       "id": "2",
       "title": "A news item",
+      "slug": "a-news-item-2",
       "body": "Quisque leo libero, finibus non tristique a, aliquet sit amet mi. Proin scelerisque, metus eget efficitur laoreet, elit lectus consequat lorem, in faucibus nulla purus vel nibh.",
       "gallery": [],
       "category": "about"
@@ -17,6 +19,7 @@
     {
       "id": "3",
       "title": "Third post",
+      "slug": "third-post-3",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit, ligula porta hendrerit venenatis, sem erat mattis nunc, eget finibus dolor nisl eget leo. Nam dolor augue, gravida nec nisl sed, commodo porttitor diam. Maecenas sed dolor bibendum, scelerisque eros ut, commodo odio. Nulla tellus ante, vehicula at volutpat nec, malesuada vitae erat. Cras vitae neque sit amet tellus facilisis elementum in nec risus.",
       "gallery": [],
       "category": "home"
@@ -28,6 +31,11 @@
       "title": "Post",
       "slug": "post",
       "fields": [
+        {
+          "title": "slug",
+          "description": "",
+          "type": "txt"
+        },
         {
           "title": "body",
           "description": "",
