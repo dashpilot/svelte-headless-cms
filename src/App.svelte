@@ -17,7 +17,11 @@
     const res = await fetch(cfg.dataPath);
     data = await res.json();
     loading = false;
-    newId()
+ 
+    await tick();
+    if(document.querySelector('#post-list').firstChild){
+      document.querySelector('#post-list').firstChild.click();
+    }
   });
   
   async function setCat(slug){
