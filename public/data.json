@@ -83,8 +83,8 @@
   ],
   "settings": {
     "website_title": "My Website",
-    "live_url": "",
     "image_width": "800",
+    "live_url": "",
     "webhook": ""
   },
   "permissions": {

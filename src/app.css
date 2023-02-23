@@ -245,6 +245,10 @@ textarea {
   height: 64px;
 }
 
+.divider {
+  padding: 15px 15px 5px 18px;
+}
+
 .filter {
   padding: 10px 20px;
   border-bottom: 6px solid #333;
@@ -279,6 +283,20 @@ textarea {
   height: 100%;
   overflow: hidden;
   overflow-y: auto;
+}
+
+.col10 {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  width: 83.35%;
+  background-color: #f8f8f8;
+}
+
+.col10 .savebar {
+  width: 83.35%;
 }
 
 .backdrop {
@@ -367,9 +385,14 @@ textarea {
   float: right;
 }
 
-.post-editor {
+.post-editor,
+.settings-editor {
   padding: 20px;
   padding-top: 90px;
+}
+
+.settings-editor {
+  width: 50%;
 }
 
 .preview {

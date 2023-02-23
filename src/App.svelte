@@ -11,6 +11,7 @@
   let saved = false;
   
   let curCatSlug = "home";
+  let curTab = false;
   let curPostId;
 
   onMount(async () => {
@@ -26,6 +27,7 @@
   
   async function setCat(slug){
     curCatSlug = slug;
+    curTab = false;
     await tick();
     if(document.querySelector('#post-list').firstChild){
       document.querySelector('#post-list').firstChild.click();
@@ -91,6 +93,11 @@
       }
     });
   }
+  
+  function setTab(tab){
+    curCatSlug = false;
+    curTab = tab;
+  }
 
   
 </script>
@@ -114,10 +121,21 @@ Loading
     <a class="tab" class:active="{curCatSlug === item.slug}"
     on:click="{() => setCat(item.slug)}">{item.title}</a>
     {/each}
+    
+       
+       <br />
+    <div class="divider">
+      <div class="site-title">Manage</div>
+    </div>
+    
+  
+    <a class="tab" class:active="{curTab === 'settings'}"
+    on:click="{() => setTab('settings')}">Settings</a>
+  
  
   </div>
 
-  
+  {#if curCatSlug}
   
   <!-- col 2 -->
   <div class="col-3 col2">
@@ -144,10 +162,10 @@ Loading
     
     </ul>
     
+ 
+    
   </div>
 
-  
-  
   
   <!-- col 3 -->
   <div class="col-7 col3">
@@ -180,6 +198,38 @@ Loading
     </div>
 
   </div>
+  {:else}
+  
+  <div class="col10">
+    
+    <div class="savebar">
+      <div class="buttons">
+        <button class="btn btn-primary mt-1" on:click={save}>
+          {#if saving}
+          <i class="fas fa-spinner fa-spin"></i>
+          {:else if saved}
+          <i class="fas fa-check"></i>
+          {:else}
+          <i class="fas fa-save"></i>
+          {/if}
+          
+         &nbsp; Save</button>
+      </div>
+      
+    </div>
+    <div class="settings-editor">
+      
+      {#each Object.keys(data.settings) as key, val}
+      <label>{key.replaceAll('_', ' ')}</label>
+      <input type="text" class="form-control" bind:value={data.settings[key]} />
+      {/each}
+ 
+    </div>
+  
+  </div>
+  
+  
+  {/if}
   
   
 </div>
