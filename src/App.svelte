@@ -114,7 +114,7 @@ Loading
   <div class="col-2 col1">
     
   <div class="settings">
-    <div class="site-title">Dashpilot</div>
+    <!-- <div class="site-title">Dashpilot</div>-->
   </div>
     
     {#each data.categories as item}
@@ -124,9 +124,11 @@ Loading
     
        
        <br />
+ 
     <div class="divider">
       <div class="site-title">Manage</div>
     </div>
+
     
   
     <a class="tab" class:active="{curTab === 'settings'}"
@@ -203,6 +205,10 @@ Loading
   <div class="col10">
     
     <div class="savebar">
+      
+      <h4 class="float-start">Settings</h4>
+      
+      
       <div class="buttons">
         <button class="btn btn-primary mt-1" on:click={save}>
           {#if saving}

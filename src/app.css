@@ -385,6 +385,14 @@ textarea {
   float: right;
 }
 
+.savebar h4 {
+  font-size: 20px;
+  padding-top: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 .post-editor,
 .settings-editor {
   padding: 20px;
@@ -392,7 +400,15 @@ textarea {
 }
 
 .settings-editor {
-  width: 50%;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 25px;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  border: 1px solid #ccc;
+  margin-top: 100px;
+  border-radius: 8px;
+  background-color: white;
 }
 
 .preview {
