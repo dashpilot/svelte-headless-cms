@@ -185,7 +185,7 @@ function imageExists(image_url){
   <div class="col-md-4">{#if window.config.imgTitle}<input type="text" class="form-control" bind:value="{item[key][i].title}" placeholder="{window.config.imgTitle}" />{/if}</div>
   <div class="col-md-4">
 
-<div class="btn-group float-right">
+<div class="btn-group float-end">
 
 <button class="btn btn-outline-secondary" on:click="{() => moveDown(key, i)}">
 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
