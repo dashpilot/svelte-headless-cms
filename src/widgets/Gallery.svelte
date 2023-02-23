@@ -99,7 +99,7 @@ function deleteImage(key, i){
     let opts = {};
     opts.filename = item[key][i].filename;
     call_api('api/delete', opts).then(function(res) {
-      if (res.ok) {
+      if (res.status=='ok') {
         console.log('Deleted');
         item[key].splice(i, 1);
         item = item;
