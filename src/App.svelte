@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { tick } from 'svelte';
   
   import Editor from './lib/Editor.svelte'
   
@@ -14,6 +15,14 @@
     data = await res.json();
     loading = false;
   });
+  
+  async function setCat(slug){
+    curCatSlug = slug;
+    await tick();
+    if(document.querySelector('#post-list').firstChild){
+      document.querySelector('#post-list').firstChild.click();
+    }
+  }
   
   function truncateString(str, no_words) {
     return str.split(" ").splice(0,no_words).join(" ");
@@ -78,7 +87,7 @@ Loading
     
     {#each data.categories as item}
     <a class="tab" class:active="{curCatSlug === item.slug}"
-    on:click="{() => curCatSlug = item.slug}">{item.title}</a>
+    on:click="{() => setCat(item.slug)}">{item.title}</a>
     {/each}
  
   </div>
@@ -96,7 +105,7 @@ Loading
       
     </div>
     
-    <ul class="list-group">
+    <ul class="list-group" id="post-list">
       {#each data.posts.filter(x=>x.category==curCatSlug) as item}
       <li class="list-group-item" class:active2="{curPostId === item.id}"
       on:click={()=>curPostId=item.id}>
