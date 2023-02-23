@@ -239,8 +239,8 @@ function imageExists(image_url){
 
 .box{
   display: inline-block;
-  width: 39px;
-  height: 39px;
+  width: 36px;
+  height: 36px;
   border: 1px solid #6c757d;
   background-size: cover;
   border-radius: 4px;
