@@ -112,7 +112,7 @@ Loading
         
         <b>{item.title}</b>
         <br>
-        <span>{@html truncateString(item.body, 7)}...</span>
+        <span>{@html truncateString(item.body, 5)}...</span>
         
       </li>
       {/each}
