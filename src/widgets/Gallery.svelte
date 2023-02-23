@@ -178,7 +178,7 @@ function imageExists(image_url){
 
 
 
-    <div class="box" style="background-image: url({"api/preview_img/"+img.filename.replace('img/', '')});"></div>
+    <div class="box" style="background-image: url({img.filename});"></div>
 
 
   </div>
