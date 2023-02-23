@@ -61,7 +61,7 @@ onMount(async () => {
       call_api('api/save', opts).then(function(res) {
         if (res.status=='ok') {
           console.log('Saved');
-          let newItem = {'filename': res.path};
+          let newItem = {'filename': res.filename};
           item[key].push(newItem);
           item = item;
           uploading = false;
